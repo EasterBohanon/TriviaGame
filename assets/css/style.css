@@ -1,0 +1,16 @@
+/* general */
+
+
+/* first page */
+#first-box {
+    background-image: url("../images/psych\ background.jpeg");
+    background-size: 100%;
+   
+}
+
+#psych-header {
+    background-color: white;
+    opacity: .3 ;
+    text-align: center;
+    
+}
