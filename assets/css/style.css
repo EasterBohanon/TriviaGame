@@ -1,16 +1,17 @@
-/* general */
+/* General */
+body {
+font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
 
-
-/* first page */
-#first-box {
-    background-image: url("../images/psych\ background.jpeg");
-    background-size: 100%;
-   
 }
 
-#psych-header {
-    background-color: white;
-    opacity: .3 ;
-    text-align: center;
-    
-}
+
+
+/* header */
+
+
+/* start page with buttons */
+
+
+/* the actual quiz */
+
+/* The update page */

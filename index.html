@@ -9,14 +9,37 @@
     <title> Trivia Game</title>
   </head>
   <body>
-      <!-- The start of the quiz -->
-      <div class="jumbotron" id="first-box" >
-            <h1 class="display-4" id="psych-header">Psych</h1>
-            <p class="lead" id="paragraph">Are you ready to test if you're a real Psych-o! Welcome to the ultimate Psych quiz, or test, I've heard both ways.</p>
-            <hr class="my-4">
-            <p id="paragraph"> You'll have about 7 minutes to complete 12 questions</p>
-            <a class="btn btn-primary btn-lg" href="#" role="button" id="start-button">Start</a>
-          </div>
+    <!-- Header -->
+    <div class="jumbotron jumbotron-fluid" id="title-header">
+        <div class="container" id="psych-header">
+          <h1 class="display-4">Psych Trivia</h1>
+        </div>
+      </div>
+
+    <!-- Start Page -->
+    <div class="container">
+      <div id="start-button-area">
+          <button type="button" class="btn btn-primary btn-lg" id="start-button">Start</button>
+      </div>
+    </div>
+    <div id ="quiz-area">
+        <p><h2>Time Remaining: <span id="time-remaining"></h2></span></p>
+        <p><h2><span id="displayQuestion"></span></h2></p>
+        <p id="answers"></p>
+        <p><h2><span id="correct"></span></h2></p>
+        <p><h2><span id="wrong"></span></h2></p>
+        <p><h2><span id="un-answered"></span></h2></p>
+        <p><h2><span id="start-over"></span></h2></p> 
+    </div>
+
+      <!-- Question Page -->
+     
+
+  
+      <!-- Answer Page -->
+      <!-- Final Score -->
+
+      
 
     
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
