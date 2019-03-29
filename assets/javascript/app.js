@@ -22,22 +22,22 @@ var myQuestions = [
         images: "assets/images/Shawn_Pineapple.gif"
     },
     {
-        question: "What does Gus do for a living?",
-        answers: ["Professional Tap dancer", "Pluto Activist", "lead psychic detective in a hit show", "Pharmaceutical Rep"],
-        correct: 'Pharmaceutical Rep',
-        images: "assets/images/super_sniffer.gif"
+        question: "In what season does Shawn and O'hara begin to date?",
+        answers: ["8", "1", "3", "5"],
+        correct: '5',
+        images: "assets/images/Ohara.gif"
     },
     {
-        question: "What does Gus do for a living?",
-        answers: ["Professional Tap dancer", "Pluto Activist", "lead psychic detective in a hit show", "Pharmaceutical Rep"],
-        correct: 'Pharmaceutical Rep',
-        images: "assets/images/super_sniffer.gif"
+        question: "What blood type is Lassiter?",
+        answers: ["A-", "O+", "A+", "O-"],
+        correct: 'O-',
+        images: "assets/images/lassiter.gif"
     },
     {
-        question: "What does Gus do for a living?",
-        answers: ["Professional Tap dancer", "Pluto Activist", "lead psychic detective in a hit show", "Pharmaceutical Rep"],
-        correct: 'Pharmaceutical Rep',
-        images: "assets/images/super_sniffer.gif"
+        question: "What is one of Gus' most popular nicknames",
+        answers: ["Whipper Snipper", "Toe's of Steel", "Jazzy Jeff", "Magic Head"],
+        correct: 'Magic Head',
+        images: "assets/images/magic_head.gif"
     }
 
 
@@ -46,25 +46,26 @@ var myQuestions = [
 ];
 var card = $("#quiz-area");
 var timer;
-// var startCount = 30;
+var startCount = 30;
 var game = {
 
     myQuestions: myQuestions,
     currentQuestion: 0,
-    counter: 30,
+    counter: startCount,
     correct: 0,
     incorrect: 0,
 
     countDown: function () {
         game.counter--;
-        $("#time-remaining").append(game.counter);
+        console.log("BEGIN COUNTDOWN")
+        $("#time-remaining").text(game.counter);
         if (game.counter === 0) {
             console.log("STOP, You've Run Out of Time");
             game.timeUp();
         }
     },
     loadQuestion: function () {
-        timer = setInterval(game.countdown, 1000);
+        timer = setInterval(game.countDown, 1000);
         card.html("<h2>" + myQuestions[this.currentQuestion].question + "</h2>");
         console.log(myQuestions[this.currentQuestion].answers);
         for (var i = 0; i < myQuestions[this.currentQuestion].answers.length; i++) {
@@ -74,13 +75,14 @@ var game = {
 
     },
     nextQuestion: function () {
+        clearInterval(timer);
         $("#time-remaining").html(game.counter);
         game.currentQuestion++;
         game.loadQuestion();
     },
 
     timeUp: function () {
-        clearInterval(timer);
+        clearInterval(timer, 1000);
         $("#time-remaining").html(game.counter);
         card.html("<h2> Your Time Here Has Ended! </h2>");
         card.append("<h3> What You Wanted To Put Was:" + myQuestions[this.currentQuestion].correct);
@@ -95,7 +97,7 @@ var game = {
     },
 
     results: function () {
-        clearInterval(timer);
+        clearInterval(timer, 1000);
         card.append(game.counter);
         card.html("<h2> All Done, Here is the true proof of your PSYCH-O-NESS </h2>");
         card.append("<h3>Correct Answers: " + game.correct + "</h3>");

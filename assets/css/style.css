@@ -1,24 +1,32 @@
 /* General */
 body {
 font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+color: white;
 
+}
+h1 {
+    color: white;
+}
+
+h2, h3 {
+    color: black;
 }
 
 
 #title-header{
-    background-image: url("../images/psych\ background.jpeg");
-    background-size: 130%;
+    background-image: url("../images/psych_pineapple.jpg");
+    background-size: 50%;
 }
 #start-button{
     float: left;
 }
 #transparent{
     background-color:white;
-    opacity: .8;
     fill-opacity: initial;
 }
 #quiz-area{
     opacity: 1;
+    background-image: url("../images/psych\ background.jpeg");
 }
 
 
