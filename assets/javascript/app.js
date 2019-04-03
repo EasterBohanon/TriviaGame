@@ -47,6 +47,8 @@ var myQuestions = [
 var card = $("#quiz-area");
 var timer;
 var startCount = 30;
+var intervalId;
+var clockRunning = false;
 var game = {
 
     myQuestions: myQuestions,
@@ -60,12 +62,14 @@ var game = {
         console.log("BEGIN COUNTDOWN")
         $("#time-remaining").text(game.counter);
         if (game.counter === 0) {
+            clearInterval(intervalId);
+            clockRunning= false;
             console.log("STOP, You've Run Out of Time");
             game.timeUp();
         }
     },
     loadQuestion: function () {
-        timer = setInterval(game.countDown, 1000);
+        intervalId = setInterval(game.countDown, 1000);
         card.html("<h2>" + myQuestions[this.currentQuestion].question + "</h2>");
         console.log(myQuestions[this.currentQuestion].answers);
         for (var i = 0; i < myQuestions[this.currentQuestion].answers.length; i++) {
@@ -75,7 +79,7 @@ var game = {
 
     },
     nextQuestion: function () {
-        clearInterval(timer);
+        clearInterval(intervalId);
         $("#time-remaining").html(game.counter);
         game.currentQuestion++;
         game.loadQuestion();
@@ -119,7 +123,7 @@ var game = {
     },
 
     clicked: function (e) {
-        clearInterval(timer);
+        clearInterval(intervalId);
         if ($(e.target).attr("data-name") === myQuestions[this.currentQuestion].correct) {
             this.isCorrect();
         }
@@ -129,7 +133,7 @@ var game = {
     },
 
     isCorrect: function () {
-        clearInterval(timer);
+        clearInterval(intervalId);
         game.correct++;
         card.html("<h2> Correct!</h2>");
         card.append("<img src='" + myQuestions[game.currentQuestion].images + "'/>");
@@ -142,7 +146,7 @@ var game = {
     },
     isWrong: function () {
         game.incorrect++;
-        clearInterval(timer);
+        clearInterval(intervalId);
         card.html("<h2> Wrong!</h2>");
         card.append("<h3> Correct Answer was : " + myQuestions[game.currentQuestion].correct + "</h3>");
         card.append("<img src ='" + myQuestions[game.currentQuestion].images + "'/>");
