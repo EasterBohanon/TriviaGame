@@ -79,6 +79,7 @@ var game = {
 
     },
     nextQuestion: function () {
+        timer = 30;
         clearInterval(intervalId);
         $("#time-remaining").html(game.counter);
         game.currentQuestion++;
@@ -86,7 +87,9 @@ var game = {
     },
 
     timeUp: function () {
-        clearInterval(timer, 1000);
+        timer = 30;
+        clearInterval(intervalId);
+        card.empty;
         $("#time-remaining").html(game.counter);
         card.html("<h2> Your Time Here Has Ended! </h2>");
         card.append("<h3> What You Wanted To Put Was:" + myQuestions[this.currentQuestion].correct);
@@ -101,7 +104,7 @@ var game = {
     },
 
     results: function () {
-        clearInterval(timer, 1000);
+        clearInterval(intervalId);
         card.append(game.counter);
         card.html("<h2> All Done, Here is the true proof of your PSYCH-O-NESS </h2>");
         card.append("<h3>Correct Answers: " + game.correct + "</h3>");
